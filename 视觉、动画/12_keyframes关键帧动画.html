@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keyframes关键帧动画</title>
+  <style>
+    /* 
+      keyframes帧动画 
+        不需要进行状态的变化而会自动运行的,而 transition 是需要触发状态才能执行动画的
+        相当也是多个过度（补间）动画组成的
+        灵活性可配置性更高，控制的更精细
+    */
+    .item{
+      width: 100px;
+      height: 100px;
+      background: red;
+      /* 如果使用了timing，是针对每一个动画段的，比如0%到50%会使用ease-in-out执行，然后50%到100%也是会使用ease-in-out执行 */
+      /* animation: run 1s ease-in-out; */
+
+      /* 单独配置 */
+      /* 动画名 */
+      animation-name: run;
+      /* 时长 */
+      animation-duration: 1s;
+      /* 延迟执行 */
+      animation-delay: 0;
+      /* timing */
+      animation-timing-function: ease-in-out;
+      /* 动画填充模式 forwards:执行后不还原动画，backwards: 执行后还原动画（默认） */
+      animation-fill-mode: forwards;
+      /* 动画循环次数 infinite：无限循环*/
+      animation-iteration-count: 2;
+    }
+    .item:hover{
+      /* 暂停动画，注意不是停止，而是暂停，会保持动画运行中的状态 */
+      animation-play-state: paused;
+    }
+
+    @keyframes run{
+
+      0%{
+        width: 10px;
+      }
+      50%{
+        width: 100px;
+      }
+      100%{
+        width: 400px;
+      }
+
+      /* from to  就是 0% 100% 的简写 */
+      /* from{
+        width: 100px;
+        height: 100px;
+      }
+      to{
+        width: 400px;
+        height: 200px;
+      } */
+    }
+  </style>
+</head>
+<body>
+  <div class="item"></div>
+</body>
+
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 原始Table */
+    table{
+      width: 800px;
+      height: 200px;
+    }
+    .left{
+      background: red;
+      width: 200px;
+    }
+    .right{
+      background: green;
+    }
+
+    /* 模拟Table */
+    .table{
+      width: 800px;
+      height: 200px;
+      display: table;
+    }
+    .table-row{
+      display: table-row;
+    }
+    .table-cell{
+      display: table-cell;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 原始Table -->
+  <table>
+    <tr>
+      <td class="left">左</td>
+      <td class="right">右</td>
+    </tr>
+  </table>
+
+  <!-- 模拟Table -->
+  <div class="table">
+    <div class="table-row">
+      <div class="left table-cell">左</div>
+      <div class="right table-cell">右</div>
+    </div>
+  </div>
+
+</body>
+</html>

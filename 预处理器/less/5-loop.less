@@ -1,0 +1,18 @@
+// less中没有for循环，只能使用递归实现循环
+
+@colNum : 12;
+
+// 使用 mixin + 递归实现循环
+// when 表示条件
+.gen-col(@n) when (@n > 0){
+  // 递归调用
+  .gen-col(@n - 1);
+
+  // 模板输出
+  .col-@{n}{
+    width: 100% / @colNum * @n;
+  }
+}
+
+// 调用
+.gen-col(@colNum);

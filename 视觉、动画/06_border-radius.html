@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>border-radius</title>
+  <style>
+
+    div{
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+
+    /* 正圆角 */
+    .item1{
+      background: red;
+      /* 圆角使用 50% 的写法要比 写固定 px 的好，因为固定px如果加了边框后就不是正圆了，半径需要按照加上边框之后来算 */
+      border-radius: 50%;
+    }
+
+    /* 小圆角 */
+    .item2{
+      background: pink;
+      /* 圆角使用 50% 的写法要比 写固定 px 的好，因为固定px如果加了边框后就不是正圆了，半径需要按照加上边框之后来算 */
+      border-radius: 8px;
+    }
+
+    /* 扇形 */
+    .item3{
+      background: green;
+      border-top-left-radius: 100%;
+    }
+    
+    /* 特殊圆角1 */
+    .item4{
+      background: rgb(15, 107, 182);
+      /* 
+        参数1：横向半径长度
+        参数2：纵向半径长度
+       */
+      border-top-left-radius: 100px 50px;
+    }
+
+    /* 特殊圆角2 */
+    .item5{
+      background: rgb(209, 21, 209);
+      /*
+        4个角x,y单独设置半径
+        前4个都是设置x（对应 上右下左 的x半径）
+        后4个都是设置y（对应 上右下左 的y半径）
+       */
+      /* border-radius: 10px 30px 10px 30px / 10px 30px 10px 30px; */
+      
+      /* 
+        功能同上
+        参数1：左上,右下 x,y半径长度
+        参数2：左下,右上 x,y半径长度
+       */
+      border-radius: 10px 30px;
+    }
+    
+    /* 特殊圆角6 */
+    .item6{
+      background: rgb(149, 219, 19);
+      border-radius: 30px 30px 10px 10px / 60px 60px 30px 30px;
+    }
+  </style>
+  </style>
+  
+</head>
+<body>
+  <!-- 正圆角 -->
+  <div class="item1"></div>
+
+  <!-- 小圆角 -->
+  <div class="item2"></div>
+
+  <!-- 扇形 -->
+  <div class="item3"></div>
+  
+  <!-- 特殊圆角1 -->
+  <div class="item4"></div>
+
+  <!-- 特殊圆角2 -->
+  <div class="item5"></div>
+
+  <!-- 特殊圆角3 -->
+  <div class="item6"></div>
+</body>
+</html>

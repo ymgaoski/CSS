@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美化checkbox</title>
+  <style>
+    #type{
+      display: none;
+    }
+    /* label默认样式 */
+    .checkbox input + label{
+      padding-left: 20px;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-image: url(./img/checkbox_normal.png);
+    }
+    /* 选中checkbox之后的label样式 */
+    .checkbox input:checked + label{
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-image: url(./img/checkbox_selected.png);
+    }
+  </style>
+</head>
+<body>
+  <div class="checkbox">
+    <input type="checkbox" id="type"/>
+    <label for="type">是否需要</label>
+  </div>
+</body>
+</html>

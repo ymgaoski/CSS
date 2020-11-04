@@ -1,0 +1,28 @@
+// 使用$定义变量
+$fontSize: 14px;
+$bgColor: red;
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.main{
+  // 使用变量
+  font-size: $fontSize;
+  background: $bgColor;
+
+  .header{
+    height: 60px;
+    // 变量数值计算
+    font-size: $fontSize + 2px;
+  }
+  .content{
+    height: 800px;
+
+    &:hover{
+      // lighten 颜色处理方法
+      background: lighten($bgColor,40%);
+    }
+  }
+}

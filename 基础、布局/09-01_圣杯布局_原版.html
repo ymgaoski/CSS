@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局_原版</title>
+  <!-- 有个小BUG，就是在网页收缩的很窄的时候，布局会错乱，后面使用的 绝对定位实现的圣杯布局就不会出现该问题 -->
+  <style>
+    .container{
+      /* 使用padding将左右布局的空间留出来 */
+      padding-left: 200px;
+      padding-right: 300px;
+      height: 500px;
+    }
+    .midden{
+      width: 100%;
+      height: 100%;
+      background: yellow;
+      /* 三个层都需要设置float:left */
+      float: left;
+    }
+    .left{
+      width: 200px;
+      height: 100%;
+      background: red;
+      float: left;
+      /* 因为midden在第一列，占用了100%的宽度，这里设置-100%就是把left往左边拉对齐到midden的left */
+      margin-left: -100%;
+      /* 然后再使用相对布局，再往左边拉出左边层的宽度 */
+      position: relative;
+      left: -200px;
+    }
+    .right{
+      width: 300px;
+      height: 100%;
+      background:skyblue;
+      float: left;
+      /* 原理同上 */
+      margin-left: -300px;
+      position: relative;
+      right: -300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="midden">
+      midden
+    </div>
+    <div class="left">
+      left
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+</body>
+</html>

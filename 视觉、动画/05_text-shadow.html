@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>text-shadow基本用法</title>
+  <style>
+
+    span{
+      display: block;
+      margin: 100px auto;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    /* 水印文字 */
+    .item1{
+      /* 
+        参数1：阴影偏移的X值
+        参数2：阴影偏移的Y值
+        参数3：模糊成度（模糊的宽度）
+        参数4：阴影颜色
+        与 box-shadow比起来 少了第4个缩放参数
+       */
+      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.42);
+    }
+
+    /* 浮雕文字 */
+    .item2{
+      text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.42);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 水印文字 -->
+  <span class="item1">这一行看起来是不是像 水印文字？</span>
+
+  <!-- 浮雕文字 -->
+  <span class="item2">这一行看起来是不是像 浮雕文字？</span>
+
+</body>
+</html>

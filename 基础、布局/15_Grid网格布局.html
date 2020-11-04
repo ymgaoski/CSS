@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid网格布局</title>
+  <style>
+    body{
+      font-family: 微软雅黑;
+      font-size: 32px;
+      text-align: center;
+      color: rgb(0, 0, 0);
+    }
+
+    .container{
+      display: grid;
+      /* display: inline-grid; */
+      /* width: 500px;
+      height: 500px; */
+
+      /* 设置3列，每列都是100px宽度 */
+      grid-template-columns: 100px 100px 100px;
+      /* 设置3行，每行都是100px宽度 */
+      grid-template-rows: 100px 100px 100px;
+      
+      /* 使用百分比设置宽度，父级需要固定高宽 */
+      /* grid-template-columns: 33.3% 33.3% 33.3%;
+      grid-template-rows: 33.3% 33.3% 33.3%; */
+
+      /* 同上，使用repeat循环生成参数 */
+      /* grid-template-columns: repeat(3,100px);
+      grid-template-rows: repeat(3,100px); */
+
+      /* 可设置重复模式，按 100px 200px 重复2次 */
+      /* grid-template-columns: repeat(2,100px 200px); */
+      /* 尽管内容没有4行，grid网格也会生成4行占位 */
+      /* grid-template-rows: repeat(4,100px); */
+
+      /* auto-fill 自适合列数，必须要是 grid 布局，inline-grid 无效 */
+      grid-template-columns: repeat(auto-fill, 100px);
+
+      /* fr：表示分段（多少份的意思）如下：第一列固定100px，第二列是第三列的2倍宽度 */
+      /* grid-template-columns: 100px 2fr 1fr; */
+      /* grid-template-columns: repeat(3,1fr); */
+
+      /* minmax: 最小，最大值 */
+      /* grid-template-columns: repeat(3,minmax(100px,300px)); */
+
+      /* auto:自动计算宽度 */
+      /* grid-template-columns: 100px auto 100px; */
+
+      /* 列间隙 */
+      /* column-gap: 10px; */
+      /* 行间隙 */
+      /* row-gap: 20px; */
+      /* 行,列 间隙简写 */
+      gap: 20px 10px; 
+    }
+    .items .item{
+      border: 1px solid #e5e4e9;
+    }
+    .items .item:nth-child(1){
+      background:red;
+    }
+    .items .item:nth-child(2){
+      background:green;
+    }
+    .items .item:nth-child(3){
+      background:blue;
+    }
+    .items .item:nth-child(4){
+      background:pink;
+    }
+    .items .item:nth-child(5){
+      background:skyblue;
+    }
+    .items .item:nth-child(6){
+      background:orange;
+    }
+    .items .item:nth-child(7){
+      background:sienna;
+    }
+    .items .item:nth-child(8){
+      background:steelblue;
+    }
+    .items .item:nth-child(9){
+      background:aquamarine;
+    }
+
+    .line{
+      border-top: 2px solid #222;
+      margin: 20px 0px;
+    }
+
+    .container2{
+      display: grid;
+      /* 定义 [网格线名字]，其它地方可以引用 */
+      grid-template-columns: [c1] 100px [c2] 100px [c3] 100px;
+      grid-template-rows: repeat(3,100px);
+    }
+    .container2 .item:nth-child(1){
+      
+      /* 布局内容在grid中的哪根网格线上，设置区域 */
+      /* grid-column-start: 1; */
+      /* grid-column-end: 3; */
+      /* grid-row-start: 2; */
+      /* grid-row-end: 4; */
+
+      /* 简写 */
+      grid-column: 1 / 3;
+      grid-row: 2 / 4;
+
+      /* 用法一：再次简写 row-start / column-start / row-end / column-end ，其中也可使用网络线名字，同 ： 2 / 1 / 4 / 3 一样 */
+      /* 用法二：指定item放在哪一个area中，可设置为 grid-template-areas 里面定义的那些区域名中的其中一个 */
+      /* grid-area:  2 / c1 / 4 / c3; */
+
+      /* span 表示"跨越"，从默认起点开始算，往后合并3列，同： 1 / 4 结果一样*/
+      /* grid-column: span 3; */
+      /* 同： 1 / 3 结果一样*/
+      /* grid-row: span 2; */
+    }
+  
+    .container3 {
+      font-size: 14px;
+      display: grid;
+      grid-template-columns: repeat(4,80px);
+      grid-template-rows: repeat(4,80px);
+      /* 当item超出布局时，自动生成行时的大小参数，默认会按item内容大小生成 */
+      grid-auto-rows: minmax(50px, auto);
+
+      /* 自定义区域 符号 . 表示不使用任何区域（空白占位） */
+      grid-template-areas: 
+        "header header header header"
+        "aside . main main"
+        "nav . main main"
+        "section section section section"
+        "footer footer footer footer";
+    }
+    .container3 header{
+      grid-area: header;
+      background-color: red;
+    }
+    .container3 main{
+      grid-area: main;
+      background-color: green;
+    }
+    .container3 section{
+      grid-area: section;
+      background-color: skyblue;
+    }
+    .container3 aside{
+      grid-area: aside;
+      background-color: steelblue;
+    }
+    .container3 nav{
+      grid-area: nav;
+      background-color: violet;
+    }
+    .container3 footer{
+      grid-area: footer;
+      background-color: turquoise;
+    }
+
+    
+    .container4{
+      display: grid;
+      max-width: 500px;
+      background: #000;
+      grid-template-columns: repeat(3,100px);
+      grid-template-rows: repeat(3,150px);
+      /* column 先列后行，默认是 row 先行后列, dense 尽可能紧密填满 */
+      grid-auto-flow:dense;
+      
+      /* 针对所有item，水平对齐方式 start | center | end | stretch 拉伸，占满单元格的整个宽度（默认值） */
+      justify-items: stretch;
+      /* 垂直对齐方式，配置同上 */
+      align-items: stretch;
+
+      /* 合并写法: [align-items] [justify-items] */
+      /* place-items: start end; */
+
+      /* 整个内容区域在容器里面的 水平对齐 start | end | center | stretch | space-around | space-between | space-evenly */
+      /* 
+        space-around: 每个项目两侧的间隔相等，项目之间的间隔比项目与容器边框的间隔大一倍。
+        space-between: 两端对齐，项目与容器边框之间没有间隔。
+        space-evenly: 所有item的间隔都一样，项目与容器边框之间也是同样长度的间隔。
+       */
+      justify-content: space-evenly;
+      /* 整个内容区域在容器里面的 垂直对齐 */
+      align-content: stretch;
+      /* 合并写法 */
+      /* place-content: stretch space-evenly; */
+
+
+    }
+    .container4 .item:nth-child(1){
+      grid-column: 1 / 3;
+    }
+    .container4 .item:nth-child(2){
+      grid-column: 1 / 3;
+
+      /* 针对单个item，水平对齐方式 */
+      /* justify-self: stretch; */
+      /* 针对单个item，垂直对齐方式 */
+      /* align-self: stretch; */
+      /* 简写 */
+      place-self: stretch stretch;
+    }
+    </style>
+</head>
+<body>
+  <span>header</span>
+  <!-- base 基本使用 -->
+  <div class="items container">
+    <div class="item"><p>1</p></div>
+    <div class="item"><p>2</p></div>
+    <div class="item"><p>3</p></div>
+    <div class="item"><p>4</p></div>
+    <div class="item"><p>5</p></div>
+    <div class="item"><p>6</p></div>
+    <div class="item"><p>7</p></div>
+    <div class="item"><p>8</p></div>
+    <div class="item"><p>9</p></div>
+  </div>
+  <span>last</span>
+
+  <div class="line"></div>
+
+  <!-- grid lines布局 -->
+  <div class="items container2">
+    <div class="item"><p>1</p></div>
+    <div class="item"><p>2</p></div>
+    <div class="item"><p>3</p></div>
+    <div class="item"><p>4</p></div>
+    <div class="item"><p>5</p></div>
+    <div class="item"><p>6</p></div>
+    <div class="item"><p>7</p></div>
+    <div class="item"><p>8</p></div>
+    <div class="item"><p>9</p></div>
+  </div>
+
+  <div class="line"></div>
+
+  <!-- areas区域 -->
+  <div class="container3">
+    <header>Header</header>
+    <aside>Aside</aside>
+    <nav>Nav</nav>
+    <main>Main</main>
+    <section>Section</section>
+    <footer>Footer</footer>
+  </div>
+
+  <div class="line"></div>
+
+  <!-- 对齐方式 -->
+  <div class="items container4">
+    <div class="item"><p>1</p></div>
+    <div class="item"><p>2</p></div>
+    <div class="item"><p>3</p></div>
+    <div class="item"><p>4</p></div>
+    <div class="item"><p>5</p></div>
+    <div class="item"><p>6</p></div>
+    <div class="item"><p>7</p></div>
+    <div class="item"><p>8</p></div>
+    <div class="item"><p>9</p></div>
+  </div>
+
+</body>
+</html>

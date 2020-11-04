@@ -1,0 +1,98 @@
+  <!-- 
+    元素 “浮动”
+      脱离文档流
+      但不脱离文本流
+
+    对自身的影响：
+      形成“块” （BFC）
+      位置尽量靠上
+      位置尽量靠左（右）
+
+    对兄弟的影响：
+      上面贴非float元素
+      旁边贴float元素
+      不影响其它块级元素位置
+      影响其它块级元素内部文本
+    
+    对父级元素的影响：
+      从布局上“消失”
+      高度塌陷
+   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 600px;
+      background: yellow;
+      margin-top: 20px;
+    }
+    /* p1是span默认是inline元素是不能设置宽高的，因为设置了float会产生一个BFC块 */
+    .p1{
+      float: left;
+      width: 260px;
+      height: 50px;
+      background: red;
+      color: white;
+      border-right: 1px solid rgb(57, 140, 250);
+    }
+    .container2{
+      /* overflow只是其中一种解决高度塌陷的属性，原理是将父级也设置成BFC块，让它接管自己宽高 */
+      overflow: auto;
+      margin-top: 60px;
+    }
+    .container3::after{
+      content: ' ';
+      height: 0px;
+      clear: both;
+      visibility: hidden;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- 经典float应用，图文环绕,脱离文档流,但不脱离文本流 -->
+  <div class="container">
+    <span class="p1">
+      left
+    </span>
+    <div class="p2">
+      iPhone11是今年全球销量最好的智能手机，在之前的促销当中，某平台价格甚至降到了四千元以下。虽然刘海还是保留，而且设计也落后，但还是深受广大用户的欢迎。不过iPhone11即将过气了，因为iPhone12在3个月后发布。作为苹果首款5G手机，卖点要比iPhone11更多。外媒最近就发布了iPhone11概念设计图，看完后感觉可以换掉手里的iPhone11了。
+    </div>
+  </div>
+
+  <div class="container">
+    <span>高度塌陷问题,浮动缺陷</span>
+    <span class="p1">
+      float
+    </span>
+    <div class="p1">
+      float
+    </div>
+  </div>
+
+  <div class="container container2">
+    <span>overflow 解决高度塌陷，清除浮动</span>
+    <span class="p1">
+      float
+    </span>
+    <span class="p1">
+      float
+    </span>
+  </div>
+
+  <div class="container container3">
+    <span>clear 解决高度塌陷，清除浮动</span>
+    <span class="p1">
+      float
+    </span>
+    <div class="p1">
+      float
+    </div>
+  </div>
+</body>
+</html>

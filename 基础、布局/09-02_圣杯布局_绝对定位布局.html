@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局_绝对定位布局</title>
+  <style>
+    .container{
+      /* 使用padding将左右布局的空间留出来 */
+      padding-left: 200px;
+      padding-right: 300px;
+      position: relative;
+      height: 500px;
+    }
+    .midden{
+      background: yellow;
+      width: 100%;
+      height: 100%;
+    }
+    .left{
+      width: 200px;
+      background: red;
+      /* 使用绝对布局到左上角 */
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+    }
+    .right{
+      width: 300px;
+      background:skyblue;
+      /* 使用绝对布局到右上角 */
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 中间层放到最上面，让它最先加载 -->
+    <div class="midden">
+      midden
+    </div>
+    <div class="left">
+      left
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+</body>
+</html>

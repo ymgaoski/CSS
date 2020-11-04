@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clip-path图片裁剪</title>
+  <style>
+    /* 需要裁剪了，但是图片的占位还是不会变 */
+    div{
+      width: 300px;
+      height: 200px;
+      background-image: url(./img/panda.jpg);
+      background-size: cover;
+      border: 2px solid red;
+      background-repeat: no-repeat;
+      display: inline-block;
+      margin: 10px;
+      /* 开启动画，clip-path 是支持动画的 */
+      transition: clip-path 0.5s ease;
+    }
+    /* 鼠标移动设置变化后的值 */
+    .item1:hover{
+      clip-path: inset(0px 0px);
+    }
+    .item2:hover{
+      clip-path: circle(300px at 202px 84px);
+    }
+    .item3:hover{
+      clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+    }
+
+    .item1{
+      /* 
+      矩形裁剪 
+      参数：上，右，下，左 */
+      clip-path: inset(22px 40px 56px 140px);
+    }
+    .item2{
+      /* 
+      圆形裁剪 
+      参数：圆形大小 at X值 Y值 
+      */
+      clip-path: circle(76px at 202px 84px);
+    }
+    .item3{
+      /* 
+      自定义路径裁剪 
+      参数：(x y, x y...) 可配置多个坐标
+      */
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .item4{
+      /* 
+      svg裁剪 
+      参数：对应svg的id参数
+      */
+      clip-path: url(#clipPath);
+    }
+  </style>
+</head>
+<body>
+  <!-- 矩形裁剪 -->
+  <div class="item1"></div>
+  <!-- 圆形裁剪 -->
+  <div class="item2"></div>
+  <!-- 自定义路径裁剪 -->
+  <div class="item3"></div>
+  <!-- svg裁剪 -->
+  <div class="item4"></div>
+
+  <!-- svg配置 -->
+  <svg>
+    <defs>
+      <clipPath id="clipPath">
+        <!-- cx:开始X坐标，cy:开始Y坐标，r:圆半径大小 -->
+        <circle cx="200" cy="80" r="78" />
+      </clipPath>
+    </defs>
+  </svg>
+
+</body>
+</html>

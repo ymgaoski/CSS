@@ -1,0 +1,83 @@
+<!-- 
+  为什么要分层？
+    分层可以更新的管理CSS样式，提高扩展性，更加易维护，也能提升代码性能和代码的组织管理
+    大量的样式覆盖、权重和很多!important，分好层可以让团队命名统一规范，方便维护
+    有责任感的去命名你的选择
+
+  常见分层：
+    SMASS：
+      （Scalable and Modualar Architecture for CSS 可扩展的模块化架构的CSS）像OCSS一样以减少重复样式为基础，使用一套5层次来划分CSS给项目带来结构化的方法：
+        - Base - 设定标签元素的预设值  如：html{} input[type=text]{}
+        - Layout - 整个网站的大架构的外观 如：#header{margin:0px;}
+        - Module - 应用在不同页面公共模块 如：.button{}
+        - State - 定义元素不同的状态  如：.nav--main{.active{}}
+        - Theme - 画面上所有主视觉的定义 如：bordre-color、background-imgage
+        修饰符（对某个元素的描述）使用的是 --，子模块使用__符号
+
+    BEM：
+      和SMASS非常类似，主要用来如何给项目命名，如：
+        .block - 表示更高级别的抽象和组件
+        .block__element - 表示 .block的后代，子元素，用于形成一个完整的.block的整体
+        .block--modifier - 表示 .bock的不同状态或不同版本
+        修饰符使用_，子模块使用__符号(不用一个-的原因是CSS单词连接)
+
+    SUIT:
+      起源于BEM，它对组件名使用驼峰式和连字号把组件从他们的修饰符和子孙后代中区分出来，如：
+      .Product{}
+      .ProductDetails--price{}
+      .ProductDetails__title--sale{}
+       修饰符使用--，子模块使用__符号(不用一个-的原因是CSS单词连接)
+
+    ACSS:
+      原子性CSS设计，就是将一些常用的样式一次定义，多地使用，如：
+      .m-10{margin:10px}
+      .w-50{width:50%}
+
+    ITCSS:
+      主要用到 SASS/LESS 中的管理
+      - Settings - 全局可用配置，设置开关  如：$color-ui:red;$spacing-unit:10px;
+      - Tools - 通用工具函数 如：@mixin font-color(){font-color:$color-ui;}
+      - Generic - 通用基础样式 如:Normalize,resets,box-sizing:border-box; 等
+      - Base - 未归类的HTML元素 如：ul{list-style:none;}
+      - Objects - 设计部分开始使用专用类 如：.ui-list__item {padding:$spacing-unit;}
+      - Components -  设计符合你们的组件 如：.products-list{@include font-brand();border:1px solid $color-ui;}
+      - Trumps - 重写，只影响一块的DOM（通常带上我们的!important）
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS分层</title>
+  <style>
+    /* ACSS中原子性的CSS设计 */
+    .m-10{
+      margin:10px;
+    }
+    .w-128{
+      width: 128px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+  </div>
+  <div class="content">
+    <!-- 子元素使用__符号 -->
+    <div class="content__header m-10">
+    </div>
+    <div class="content__list w-128">
+      <!-- 状态或修饰符使用 -- 符号 -->
+      <div class="content__list__item container__list__item--active"></div>
+      <div class="content__list__item"></div>
+      <div class="content__list__item"></div>
+      <div class="content__list__item"></div>
+    </div>
+  </div>
+  <div class="footer">
+  </div>
+
+</body>
+</html>

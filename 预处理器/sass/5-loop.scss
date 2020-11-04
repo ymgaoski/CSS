@@ -1,0 +1,31 @@
+// scss中有for循环，一般不会使用 mixin + 递归的方法实现循环
+
+$colNum : 12;
+
+// // 使用mixin + 递归实现循环
+// // when 表示条件
+// @mixin gen-col($n){
+
+//   @if ($n > 0) {
+//     // 递归调用
+//     @include gen-col($n - 1);
+
+//     // 模板输出
+//     .col-#{$n}{
+//       width: 100% / $colNum * $n;
+//     }
+//   }
+// }
+
+// // 调用
+// @include gen-col($colNum);
+
+
+// for 循环，实现上面同样的功能
+@for $n from 1 to $colNum {
+    
+    // 模板输出
+    .col-#{$n}{
+      width: 100% / $colNum * $n;
+    }
+}

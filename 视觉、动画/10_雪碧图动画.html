@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雪碧图动画</title>
+  <style>
+    .contianer i{
+      width: 40px;
+      height: 40px;
+      background-image: url(./img/background.png);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-position: 0px 0px;
+      /* CSS3背景图片位置 移动动画 0.4秒完成 */
+      transition: background-position .4s;
+    }
+    /* 鼠标移入设置背景图片位置 */
+    .contianer i:hover{
+      background-position: 0px -40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contianer">
+    <i></i>
+  </div>
+</body>
+</html>

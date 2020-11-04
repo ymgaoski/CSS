@@ -1,0 +1,36 @@
+// extend 主要就是为了解决 mixin中代码重复问题
+
+@fontSize: 14px;
+@bgColor: red;
+
+// extend公共样式
+.block{
+  font-size:@fontSize;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.main{
+  font-size: @fontSize;
+  background: @bgColor;
+
+  // 引入block样式，并提取公共的
+  .header:extend(.block){
+    height: 60px;
+    font-size: @fontSize + 2px;
+  }
+  .content{
+    height: 800px;
+
+    // 该写法同上功能一样
+    &:extend(.block);
+    &:hover{
+      background: lighten(@bgColor,40%);
+    }
+  }
+}

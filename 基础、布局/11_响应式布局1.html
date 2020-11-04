@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式布局1</title>
+  <style>
+    .container{
+      border: 1px solid black;
+      display: flex;
+      color: white;
+    }
+    .left{
+      background: red;
+      width: 100px;
+      padding: 10px;
+    }
+
+    /* 
+      在特定宽度下引入特定样式
+      max-width: 当宽度小于这个值是会引入里面的样式
+     */
+    @media (max-width: 640px) {
+      .left{
+        display: none;
+      }
+    }
+
+    .right{
+      background:green;
+      flex: 1;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      我是一些简单的介绍，可有可无的东西~ 
+    </div>
+    <div class="right">
+      6月20日，特朗普在塔尔萨举行了疫情暴发以来的首场竞选集会。然而，特朗普期待已久的竞选集会似乎让他有些失望。6名协助组织集会的工作人员感染新冠病毒、到场支持者人数远低于预期，导致室外演讲取消、场馆上座率只有三分之一，然而在集会前，特朗普竞选团队曾声称集会已有百万人注册参加。 
+    </div>
+  </div>
+</body>
+</html>

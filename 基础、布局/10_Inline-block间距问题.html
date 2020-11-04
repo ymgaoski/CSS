@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 250px;
+      height: 100px;
+      color: white;
+      margin-bottom: 150px;
+    }
+    .left{
+      width: 100px;
+      height: 100%;
+      background: red;
+      display: inline-block;
+    }
+    .right{
+      width: 150px;
+      height: 100%;
+      background:green;
+      display: inline-block;
+    }
+
+    .container1{
+      font-size: 0px;
+    }
+    .container1 .left,.container1 .right{
+      font-size: 14px;
+    }
+
+    .container3 .left{
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      left 
+    </div>
+    <div class="right">
+      right 
+    </div>
+  </div>
+
+  <div class="container" style="width: auto;">
+    <div class="left">
+      left 
+    </div>
+    <div class="right">
+      right 
+    </div>
+  </div>
+
+  <div class="container container1">
+    <div class="left">
+      left 
+    </div>
+    <div class="right">
+      right 
+    </div>
+  </div>
+  
+  <div class="container container2">
+    <div class="left">
+      left 
+    </div><div class="right">
+      right 
+    </div>
+  </div>
+
+  
+  <div class="container container3">
+    <div class="left">
+      left 
+    </div>
+    <div class="right">
+      right 
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.module1{
+  background-color: $bgColor;
+  .header{
+    height: $headHeight;
+  }
+  .top{
+    background-color: red;
+    color: $titleColor;
+  }
+  .bottom{
+    background-color: green;
+  }
+}

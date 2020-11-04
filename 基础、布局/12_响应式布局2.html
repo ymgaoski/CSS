@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式布局2</title>
+  <style>
+    html{
+      /* 1rem = html的font-size,默认为 16px */
+      font-size: 10px;
+    }
+    .container{
+      border: 1px solid black;
+      text-align: center;
+      max-width: 600px;
+      margin: 0px auto;
+      font-size: 14px;
+    }
+    .item{
+      width: 10rem;
+      height: 10rem;
+      border-radius: 5rem;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 10rem;
+      display: inline-block;
+      margin: 0.5rem;
+    }
+    /* iphone6下的默认rem值 */
+    @media (max-width:375px) {
+      html{
+        font-size: 12px;
+      }
+    }
+    /* iphone5下的默认rem值，注意顺序，不能反 */
+    @media (max-width:320px) {
+      html{
+        font-size: 10px;
+      }
+    }
+    @media (max-width:375px) {
+      .item{
+        display: block;
+        margin: 0.7rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">
+      介绍1
+    </div>
+    <div class="item">
+      介绍2
+    </div>
+    <div class="item">
+      介绍3
+    </div>
+    <div class="item">
+      介绍4
+    </div>
+    <div class="item">
+      介绍5
+    </div>
+  </div>
+</body>
+</html>

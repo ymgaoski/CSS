@@ -1,0 +1,38 @@
+// mixin 最大的问题是会导致代码重复
+
+@fontSize: 14px;
+@bgColor: red;
+
+// mixin ，可以混入到其它样式中
+// @size 传参
+.block(@size){
+  font-size: @size;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.main{
+  font-size: @fontSize;
+  background: @bgColor;
+
+  .header{
+    height: 60px;
+    font-size: @fontSize + 2px;
+    // 混入block样式
+    .block(@fontSize + 2px);
+  }
+  .content{
+    height: 800px;
+    // 混入block样式
+    .block(@fontSize);
+
+    &:hover{
+      background: lighten(@bgColor,40%);
+    }
+  }
+}

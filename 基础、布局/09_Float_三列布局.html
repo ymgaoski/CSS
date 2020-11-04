@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float_三列布局</title>
+  <style>
+    .container{
+      width: 1000px;
+      height: 800px;
+      background: yellow;
+      color: white;
+    }
+    /* left是span默认是inline元素是不能设置宽高的，因为设置了float会产生一个BFC块 */
+    .left{
+      float: left;
+      width: 200px;
+      height: 100%;
+      background: red;
+    }
+    .midden{
+      margin-left:200px;
+      margin-right:200px;
+      background: pink;
+      height: 100%;
+    }
+    .right{
+      float: right;
+      width: 200px;
+      height: 100%;
+      background:green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="left">
+      left
+    </span>
+    <!-- 注意right 与 midden 的左右顺序，这里需要反过来，原因是如果midden在right上面的话，浮动是绕不过去的，在它的下面就没问题 -->
+    <div class="right">
+      right
+    </div>
+    
+    <!-- 中间内容放最后面，有个问题，网页是从上往下执行的，如果左边和右边内容太多，中间会不出现延迟渲染，效果不好，后面说的圣杯布局和双飞翼布局可以解决这问题 -->
+    <div class="midden">
+      midden
+    </div>
+  </div>
+</body>
+</html>

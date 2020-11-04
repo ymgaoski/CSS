@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body{
+        padding: 50px;
+      }
+      #infinity{
+        width: 212px;
+        height: 100px;
+        position: relative;
+      }
+      #infinity:before,#infinity:after{
+              width: 60px;
+              height: 60px;
+              top: 0;
+              left: 0;
+              border: 20px solid red;
+              position: absolute;
+              content: "";
+              border-radius: 50px 50px 0 50px;
+              -webkit-border-radius:50px 50px 0 50px;
+              -moz-border-radius:50px 50px 0 50px;
+              transform:rotate(-45deg);
+              -webkit-transform:rotate(-45deg);
+              -ms-transform:rotate(-45deg);
+              -moz-transform:rotate(-45deg);
+              -o-transform:rotate(-45deg);
+      }
+      #infinity:after{
+              left: auto;
+              right: 0;
+              border: 20px solid green;
+              border-radius: 50px 50px 50px 0;
+              -webkit-border-radius:50px 50px 50px 0;
+              -moz-border-radius:50px 50px 50px 0;
+              transform:rotate(45deg);
+              -webkit-transform:rotate(45deg);
+              -moz-transform:rotate(45deg);
+              -ms-transform:rotate(45deg);
+              -o-transform:rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="infinity"></div>
+
+  </body>
+</html>

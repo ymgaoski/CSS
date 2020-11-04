@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对勾</title>
+  <style>
+    body{
+      padding: 20px;
+    }
+    /* 外圈 */
+    .gou{
+      width: 32px;
+      height: 32px;
+      border: 2px solid red;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 20px;
+      position: relative;
+    }
+    /* 内勾 */
+    .gou::after{
+      content: ' ';
+      width: calc(100% / 2 / 2);
+      height: calc(100% / 2);
+      /* 只显示下面和右边 */
+      border-width: 0px 2px 2px 0px;
+      /* 旋转45度 */
+      transform: rotate(45deg);
+      border-style: solid;
+      border-color: red;
+      display: inline-block;
+      position: absolute;
+      top: 15%;
+      left: 33%;
+    }
+  </style>
+</head>
+<body>
+  <div class="gou"></div>
+</body>
+</html>

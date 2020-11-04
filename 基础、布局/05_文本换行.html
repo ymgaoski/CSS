@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 112px;
+      height: 200px;
+      border: 1px solid;
+      margin-top: 10px;
+    }
+
+    /* 默认状态，自动换行 */
+    .c1{
+      /* 下面默认参数设不设置都一样 */
+      /* overflow-wrap: normal;
+      word-break: normal;
+      white-space: normal; */
+    }
+
+    /* 不包裹，不换行，默认是包裹换行的  */
+    .c2{
+      white-space: nowrap;
+    }
+
+    /* 按单词换行，单词超过一行强制换行  */
+    .c3{
+      overflow-wrap: break-word;
+    }
+
+    /* 同上  */
+    .c4{
+      word-break: break-word;
+    }
+    
+    /* 全部填满，强制换行  */
+    .c5{
+      word-break: break-all;
+    }
+    /* 按语句换行，中文也能识别，有兼容性问题  */
+    .c6{
+      word-break: keep-all;
+    }
+    /* 混合使用，先按语句换行，语句有超出的再按单词或强制换行 */
+    .c7{
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="c1">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c2">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c3">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c4">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c5">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c6">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+  <div class="c7">
+    I have a dream, is to travel in the sky is veryveryveryveryvery.我有一个梦想，就是遨游天空。
+  </div>
+</body>
+</html>

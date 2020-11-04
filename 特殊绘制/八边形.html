@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body{
+        padding: 50px;
+      }
+      #octagon{
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        position: relative;
+      }
+      #octagon:before{
+              width: 42px;
+              height: 0;
+              top: 0;
+              left: 0;
+              position: absolute;
+              content: "";
+              border-left: 29px solid #eee;
+              border-right: 29px solid #eee;
+              border-bottom: 29px solid red;
+      }
+      #octagon:after{
+              width: 42px;
+              height: 0;
+              left: 0;
+              bottom: 0;
+              position: absolute;
+              content: "";
+              border-left: 29px solid #eee;
+              border-right: 29px solid #eee;
+              border-top: 29px solid green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="octagon"></div>
+
+  </body>
+</html>

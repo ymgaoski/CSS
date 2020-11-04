@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition过度动画</title>
+  <style>
+    .item{
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      /* 分开设置各各属性值 */
+      /* transition: width 1s,height 1s, background 1s; */
+      /* 针对所有能做动画的属性设置值，同上 */
+      /* transition: all 1s; */
+      /* 
+        参数1：延迟多久执行
+        参数2：针对哪个属性的动画配置，all代表所有能做动画的属性
+        参数3：动画时长
+        参数4：动画timing，切换效果的速度变换
+               linear: 线性动画, 以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）
+               ease:   慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）
+               ease-in: 淡入动画，以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）
+               ease-in-out: 淡入淡出动画，慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）
+               cubic-bezier: 贝塞尔曲线动画
+       */
+      transition: all 0.5s cubic-bezier(.44,-0.48,.51,1.38);
+    }
+    /* transition: 过度（补间）动画，需要和状态关连才能执行（必须要修改属性值才能运行动画） */
+    .item:hover{
+      width: 200px;
+      height: 200px;
+      background: skyblue;
+    }
+    
+    button{
+      position: absolute;
+      left: 20px;
+      top: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="item"></div>
+  <button onClick="start()">开始</button>
+</body>
+
+<script>
+
+  function start(){
+
+    var item = document.querySelector('.item');
+    item.style.left = 400;
+    //　1s后还原
+    setTimeout(() => {
+      item.style.left = 20;
+    }, 1000);
+
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float_双列布局</title>
+  <style>
+    .container{
+      width: 600px;
+      height: 800px;
+      background: yellow;
+      color: white;
+    }
+    /* left是span默认是inline元素是不能设置宽高的，因为设置了float会产生一个BFC块 */
+    .left{
+      float: left;
+      width: 200px;
+      height: 100%;
+      background: red;
+    }
+    .right{
+      /* 精髓之处，左边有多宽，就设置多少左边距 */
+      margin-left:200px;
+      height: 100%;
+      background:green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="left">
+      left
+    </span>
+    <div class="right">
+      right
+    </div>
+  </div>
+</body>
+</html>

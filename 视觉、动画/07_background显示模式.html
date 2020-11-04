@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background显示模式</title>
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+      background-image: url(./img/panda.jpg);
+      border: 2px solid red;
+      background-repeat: no-repeat;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    /* 等比例居中 */
+    .item1{
+      background-position: center center;
+    }
+    /* 按固定大小拉伸 */
+    .item2{
+      background-size: 100% 100%;
+    }
+    /* 等比例全屏显示 */
+    .item3{
+      background-size: cover;
+      background-position: center center;
+    }
+    /* 等比例完整显示 */
+    .item4{
+      background-size: contain;
+      background-position: center center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 等比例居中 -->
+  <div class="item1"></div>
+  
+  <!-- 按固定大小拉伸 -->
+  <div class="item2"></div>
+
+  <!-- 等比例全屏显示 -->
+  <div class="item3"></div>
+
+  <!-- 等比例完整显示 -->
+  <div class="item4"></div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>box-shadow基本用法</title>
+  <style>
+
+    div{
+      width: 100px;
+      height: 100px;
+      margin: 50px;
+      display: inline-block;
+    }
+
+    /* 正常斜边阴影 */
+    .item1{
+      background: red;
+      /* 
+        参数1：阴影偏移的X值
+        参数2：阴影偏移的Y值
+        参数3：模糊成度（模糊的宽度）
+        参数4：阴影的缩放
+        参数5：阴影颜色
+       */
+      box-shadow: 10px 10px 3px 0px #000;
+    }
+
+    /* 使用阴影模仿边框 */
+    .item2{
+      background: green;
+      box-shadow: 0px 0px 4px 1px #000;
+    }
+
+    /* 内阴影 */
+    .item3{
+      background: skyblue;
+      box-shadow: 0px 0px 10px 0px #3e3e3e inset;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 正常斜边阴影 -->
+  <div class="item1"></div>
+
+  <!-- 使用阴影模仿边框 -->
+  <div class="item2"></div>
+  
+  <!-- 内阴影 -->
+  <div class="item3"></div>
+
+</body>
+</html>
